@@ -1,0 +1,122 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{mymacros}
+
+\title{Point scheme vs Hilbert scheme}
+\date{\today}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{eg}[thm]{Example}
+
+\begin{document}
+
+\maketitle
+
+We take $Q:= Q_{(6.1)}$ and $Q'$ to be $Q$ with the vertex $(0,0)$ removed along with arrows emanating from it; relations $I$ on $Q$ induce relations $I'$ on $Q'$.
+
+Before we address the relationship between point schemes and Hilbert schemes we strengthen the results discussed in the previous note on stability conditions.
+In particular, we have the following result.
+
+\begin{lem}
+Given a generic ideal of relations $I$, the parameters $$\theta_1:= (-2,-2,-2,1,1,1,1,1,1) \quad \text{and} \quad \theta_2:= (-1,-1,-1,0,0,0,1,1,1)$$ give the same stability conditions on representations of dimension vector $\vec{1}$ on $Q$.
+\end{lem}
+
+\begin{proof}
+Recall that stability with respect to $\theta_1$ is equivalent to:
+\begin{enumerate}
+    \item for every $k \in \{0,1,2\}$ there is an arrow $a$ with target $(k,1)$ for which $v_a \neq 0$. 
+    \item for every $i,j \in \{0,1,2\}$ there is a path $p$ from $(i,0)$ to $(j,2)$ for which $v_p\neq 0$.
+\end{enumerate}
+We show that condition (2) implies (1).
+
+Assume condition (2) holds.
+Fix a generic ideal of relations $I$.
+This gives us a collection of numbers $(\alpha_{ij})$ so that the relations between the paths from $(i,0)$ and the vertices $(0,2)$ are:
+\begin{equation}\label{eq:z}
+    \begin{pmatrix}
+    \alpha_{11}\, x_0 & \alpha_{12}\, y_0 & \alpha_{13}\, z_0 \\
+    \alpha_{21}\, z_1 & \alpha_{22}\, x_1 & \alpha_{23}\, y_1 \\
+    \alpha_{31}\, y_2 & \alpha_{32}\, z_2 & \alpha_{33}\, x_2
+\end{pmatrix} \begin{pmatrix}
+    x_0' \\ z_1' \\ y_2'
+\end{pmatrix} =0.
+\end{equation}
+We may assume that $I$ lies in the dense torus of the moduli of relations.
+We may then rescale by an element of $\text{Aut}(\bk Q_{(6,1)})$ so that $\alpha_{ij}=1$ for all $i$ and $j$.
+
+Condition (2) then gives us the following:
+\begin{enumerate}
+    \item[(a)] no row is entirely zero,
+    \item[(b)] no two columns can vanish simultaneously.
+\end{enumerate}
+With out loss of generality, conditions (a) and (b) give us that $x_0 \neq 0$ and $x_1 \neq $
+Since $(\beta_{ij}) \in \bG_m^{3 \times 3}$ is generic, the only vectors in the kernel of $M_\beta$ are of the form $(0,0,\lambda)$ for $\lambda \in \bC$
+\end{proof}
+
+Here we compare the moduli space of $\theta$-stable representations on our quiver $(Q,I)$ with a closed subvariety of moduli space of $\theta'$-stable representations on $(Q',I')$.
+We will denote the moduli spaces $\cN$ and $\cN'$ respectively.
+We give an isomorphism between them when $I$ is generic enough.
+
+First we specify the closed locus in question.
+Fix a generic ideal of relations $I$.
+This gives us a collection of numbers $(\alpha_{ij})$ so that the relations between the paths from $(0,0)$ and the vertices $(i,2)$ are:
+\begin{equation}\label{eq:z}
+    \begin{pmatrix}
+    \alpha_{11}\, x_0' & \alpha_{12}\, z_1' & \alpha_{13}\, y_2' \\
+    \alpha_{21}\, y_0' & \alpha_{22}\, x_1' & \alpha_{23}\, z_2' \\
+    \alpha_{31}\, z_0' & \alpha_{32}\, y_1' & \alpha_{33}\, x_2'
+\end{pmatrix} \begin{pmatrix}
+    x_0 \\ y_0 \\ z_0
+\end{pmatrix} =0.
+\end{equation}
+We call the first factor of the product of matrices above $M_\alpha$.
+Similarly we get a matrix $M_\beta$ from relations between the paths from $(1,0)$ and the vertices $(i,2)$.
+The closed subvariety of $\cN'$ will then given by $Z:= \{\det M_\alpha=0\} \subset \cN'$.
+
+
+\begin{lem}\label{lm:rank}
+If our ideal of relations $I$ is generic enough then $\rank(M_\alpha) = 2$ for any point $\bfp' \in \cN'$.
+\end{lem}
+
+\begin{proof}
+We may assume that $I$ lies in the dense torus of the moduli of relations.
+We may then rescale by an element of $\text{Aut}(\bk Q_{(6,1)})$ so that $\alpha_{ij}=1$ for all $i$ and $j$.
+
+Our choice of stability parameter gives us the following:
+\begin{enumerate}
+    %\item $(x_0', y_0', z_0')^T\neq 0$, this follows since  $\theta'_{(0,1)}<0$,
+    \item two columns can not vanish simultaneously,
+    \item no row of $M$ is entirely zero since $\theta'_{(i,2)}>0$ for all $i \in \{0,1,2\}$.
+\end{enumerate}
+These observations, in particular, rule out that $M$ is the zero matrix.
+
+Now assume $\rank(M)=1$.
+Our assumption gives us that the columns of $M$ are scalar multiples of each other.
+Combining our two observations above we get that at least one other column, say $(z_1', x_1', y_1')^T$ is non-zero.
+Since $(\beta_{ij}) \in \bG_m^{3 \times 3}$ is generic, the only vectors in the kernel of $M_\beta$ are of the form $(0,0,\lambda)$ for $\lambda \in \bC$.
+However, we have that $(z_1, x_1, y_1)^T$ is in the kernel of $M_\beta$ but $\theta'$ stability (in particular, the condition that at least two paths are nonzero from $(1,0)$ to $(0,2)$) implies it can not be of the prescribed form.
+We get a contradiction.
+\end{proof}
+
+We have a natural morphism $f \colon \cN \rightarrow \cN'$ forgetting the linear maps whose source is the vector space at $(0,0)$.
+We first observe that the image of $f$ lies in $Z$.
+The vector $(x_0, y_0, z_0)^T$ is non-zero by our choice of stability parameter; it gives us a non-zero vector in the kernel of $M_\alpha$ and $\det M_\alpha = 0$.
+
+Lemma~\ref{lm:rank} gives us $f^{-1}$ as follows. 
+For every $p' \in \cN'$ we have $\rank(M_\alpha)=2$.
+Therefore is a unique nonzero vector in $\ker(M_\alpha)$ up to scalar.
+Taking this vector to be $(x_0, y_0, z_0)^T$ gives us a point in $\bfp$.
+The scaling is taken care of the by the extra $\bG_m$ in the gauge group used to define $\cN$.
+
+These on the face of it are rational maps.
+The fact that $\theta$-stable points go to $\theta'$-stable points and vice versa may be observed if we view $\cN'$ as the contraction of $\cN$ along the edge $x_0$.
+\end{document}
